@@ -3,7 +3,7 @@ metadata:
   name: hello-world
 
 containers:
-  container-id:
+  hello-world:
     image: busybox
     command: ["/bin/sh"]
     args: ["-c", "while true; do echo Hello World!; sleep 5; done"]

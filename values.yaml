@@ -1,0 +1,9 @@
+containers:
+  hello-world:
+    args:
+      - -c
+      - while true; do echo Hello World!; sleep 5; done
+    command:
+      - /bin/sh
+    image:
+      name: busybox
