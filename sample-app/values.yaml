@@ -7,6 +7,6 @@ containers:
       - /bin/sh
     env:
       - name: FRIEND
-        value: John
+        value: Dev
     image:
       name: busybox
