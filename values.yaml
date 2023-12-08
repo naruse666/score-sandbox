@@ -1,9 +1,12 @@
 containers:
-  hello-world:
+  hello:
     args:
       - -c
-      - while true; do echo Hello World!; sleep 5; done
+      - while true; do echo Hello $${FRIEND}!; sleep 5; done
     command:
       - /bin/sh
+    env:
+      - name: FRIEND
+        value: John
     image:
       name: busybox
