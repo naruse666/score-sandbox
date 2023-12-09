@@ -1,0 +1,10 @@
+services:
+  hello-annotations:
+    command:
+      - Hello Annotations
+    entrypoint:
+      - /bin/echo
+    image: busybox
+    ports:
+      - target: 8080
+        published: "80"
