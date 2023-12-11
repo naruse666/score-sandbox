@@ -1,0 +1,31 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: hello-world
+service:
+  ports:
+    web:
+      port: 8080
+      targetPort: 80
+containers:
+  awesome-web-service:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello!; sleep 100; done"]
+    variables:
+      POSTGRES_USER: ${resources.postgres.username}
+      POSTGRES_PASSWORD: ${resources.postgres.password}
+    # does not worked
+    volumes:
+    - source: ${resources.tmp-data}
+      target: /tmp
+
+resources:
+  tmp-data:
+    type: volume
+  data:
+    type: workload
+  service-b:
+    type: service
+  postgres:
+    type: postgres

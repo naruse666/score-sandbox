@@ -1,0 +1,25 @@
+containers:
+  awesome-web-service:
+    args:
+      - -c
+      - while true; do echo Hello!; sleep 100; done
+    command:
+      - /bin/sh
+    env:
+      - name: POSTGRES_PASSWORD
+        value: ""
+      - name: POSTGRES_USER
+        value: ""
+    image:
+      name: busybox
+    volumeMounts:
+      - mountPath: /staging
+        name: tmp-data
+        readOnly: false
+        subPath: ""
+service:
+  ports:
+    - name: web
+      port: 8080
+      targetPort: 80
+  type: ClusterIP
